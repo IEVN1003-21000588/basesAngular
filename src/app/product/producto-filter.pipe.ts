@@ -13,5 +13,5 @@ export class ProductoFilterPipe implements PipeTransform {
    
     ):value;
   }
- 
+
 }
