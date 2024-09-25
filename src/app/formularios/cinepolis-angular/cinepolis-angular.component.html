@@ -1,0 +1,31 @@
+<div>
+    <h1>Compra de Boletos de Cine</h1>
+
+    <form [formGroup]="formulario" (ngSubmit)="calcularTotal()">
+        <div>
+            <label for="nombre">Nombre del cliente: </label><br>
+            <input formControlName="nombre" type="text" placeholder="Ingresa tu nombre">
+        </div>
+        <br>
+        <div>
+            <label for="compradores">Cantidad de compradores: </label><br>
+            <input formControlName="compradores" type="number" placeholder="Cantidad de personas comprando boletos">
+        </div>
+        <br>
+        <div>
+            <label for="boletos">Número de boletos: </label><br>
+            <input formControlName="boletos" type="number" placeholder="Cantidad de boletos (máximo 7)">
+            <div *ngIf="errorMsg" style="color: red;">{{ errorMsg }}</div>
+        </div>
+        <br>
+        <div>
+            <label for="cineco">¿Tienes tarjeta CINECO?</label><br>
+            <input type="radio" formControlName="cineco" value="sí"> Sí <br>
+            <input type="radio" formControlName="cineco" value="no"> No
+        </div>
+        <br>
+        <button type="submit">Calcular Total</button>
+        <br><br>
+        <p *ngIf="totalPagar !== null">Total a pagar: {{ totalPagar | currency }}</p>
+    </form>
+</div>
