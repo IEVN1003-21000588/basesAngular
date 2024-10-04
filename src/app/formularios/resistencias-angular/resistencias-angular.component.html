@@ -1,0 +1,77 @@
+<div class="main-container">
+  <h1>Calculadora de Resistencias</h1>
+
+  <!-- Formulario reactivo con [formGroup] que se enlaza al formulario definido en el componente -->
+  <form [formGroup]="formulario" (ngSubmit)="registrar()">
+    
+    <!-- Sección de entradas del formulario -->
+    <section class="input-section">
+
+      <!-- Selección de la primera banda de color -->
+      <label for="band1">Primera Banda:</label>
+      <select formControlName="color1">
+        <option value="" disabled>Elige un color</option>
+        <!-- Iteramos sobre el arreglo de colores para mostrar cada opción -->
+        <option *ngFor="let color of colores" [value]="color">{{color}}</option>
+      </select>
+
+      <!-- Selección de la segunda banda de color -->
+      <label for="band2">Segunda Banda:</label>
+      <select formControlName="color2">
+        <option value="" disabled>Elige un color</option>
+        <option *ngFor="let color of colores" [value]="color">{{color}}</option>
+      </select>
+
+      <!-- Selección del multiplicador -->
+      <label for="multiplier">Multiplicador:</label>
+      <select formControlName="color3">
+        <option value="" disabled>Elige un color</option>
+        <option *ngFor="let color of colores" [value]="color">{{color}}</option>
+      </select>
+
+      <!-- Botones de radio para la selección de la tolerancia -->
+      <label for="tolerance">Tolerancia:</label>
+      <div>
+        <label>
+          <input type="radio" formControlName="tolerancia" [value]="'Oro'"> Oro
+        </label>
+        <br>
+        <label>
+          <input type="radio" formControlName="tolerancia" [value]="'Plata'"> Plata
+        </label>
+      </div>
+
+      <!-- Botón que solo estará habilitado si el formulario es válido -->
+      <button type="submit" [disabled]="!formulario.valid">Añadir Resistencia</button>
+    </section>
+  </form>
+
+  <!-- Sección de resultados donde se muestran las resistencias calculadas -->
+  <section class="result-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Banda 1</th>
+          <th>Banda 2</th>
+          <th>Multiplicador</th>
+          <th>Tolerancia</th>
+          <th>Resistencia</th>
+          <th>Máximo</th>
+          <th>Mínimo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iteramos sobre el arreglo de resultados para mostrar cada resistencia calculada -->
+        <tr *ngFor="let res of resultado">
+          <td [ngStyle]="{'background-color': obtenerColorHex(res.color1)}">{{res.color1}}</td>
+          <td [ngStyle]="{'background-color': obtenerColorHex(res.color2)}">{{res.color2}}</td>
+          <td [ngStyle]="{'background-color': obtenerColorHex(res.color3)}">{{res.color3}}</td>
+          <td [ngStyle]="{'background-color': obtenerColorHex(res.tolerancia)}">{{res.tolerancia}}</td>
+          <td>{{res.valor}}Ω</td>
+          <td>{{res.valorMaximo}}Ω</td>
+          <td>{{res.valorMinimo}}Ω</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

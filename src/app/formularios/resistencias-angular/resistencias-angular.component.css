@@ -1,0 +1,151 @@
+/* Contenedor principal con layout de dos columnas */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fdfdfd;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título principal */
+  h1 {
+    grid-column: span 2;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 2.6rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilos de la sección del formulario */
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  label {
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    color: #444;
+  }
+  
+  /* Estilo para los selectores */
+  select {
+    width: 270px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    color: #333;
+    background-color: #f8f8f8;
+  }
+  
+  select:hover {
+    border-color: #888;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #444;
+    background-color: #f0f0f0;
+  }
+  
+  /* Botón de acción */
+  button {
+    margin-top: 30px;
+    background-color: #555;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #333;
+    transform: scale(1.02);
+  }
+  
+  /* Sección de la tabla de resultados */
+  .result-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Encabezado de la tabla */
+  th {
+    background-color: #333;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Ajuste para las celdas dinámicas */
+  td {
+    font-size: 15px;
+    font-family: 'Merriweather', serif;
+    color: rgb(0, 0, 0); /* Texto blanco para que contraste con el color de fondo */
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Color del texto para celdas claras (Oro, Plata, Blanco, Amarillo) */
+  td.ng-light {
+    color: #888888; /* Texto oscuro para colores claros */
+  }
+  
+  tbody tr:hover {
+    background-color: #a8a8a8;
+    cursor: pointer;
+  }
+  
+  /* Última columna */
+  td:last-child {
+    border-right: none;
+  }
+  
+  /* Clase para texto oscuro sobre fondos claros (opcional) */
+  .ng-light {
+    color: #333 !important; /* Fuerza el texto oscuro */
+  }
+  
